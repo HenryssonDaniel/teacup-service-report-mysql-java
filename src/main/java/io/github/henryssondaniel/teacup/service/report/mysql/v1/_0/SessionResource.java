@@ -84,6 +84,7 @@ public class SessionResource {
 
   private static ResponseBuilder summary(PreparedStatement preparedStatement) throws SQLException {
     ResponseBuilder responseBuilder;
+
     try (var resultSet = preparedStatement.executeQuery()) {
       var stringBuilder = new StringBuilder(0);
 
@@ -109,6 +110,7 @@ public class SessionResource {
       responseBuilder =
           Response.ok("{\"sessions\": [" + stringBuilder + "]}", MediaType.APPLICATION_JSON);
     }
+
     return responseBuilder;
   }
 }
