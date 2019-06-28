@@ -15,6 +15,8 @@ import javax.ws.rs.core.Response.Status;
 import org.junit.jupiter.api.Test;
 
 class SessionResourceTest {
+  private static final String SESSION =
+      "{\"aborted\": 0, \"executions\": 0, \"failed\": 0, \"initialized\": \"null\", \"running\": 0, \"skipped\": 0, \"successful\": 0}";
   private final DataSource dataSource = mock(DataSource.class);
 
   @Test
@@ -25,7 +27,7 @@ class SessionResourceTest {
   @Test
   void summary() throws SQLException {
     var resultSet = mock(ResultSet.class);
-    when(resultSet.next()).thenReturn(true, false);
+    when(resultSet.next()).thenReturn(true, true, false);
 
     var preparedStatement = mock(PreparedStatement.class);
 
@@ -44,9 +46,7 @@ class SessionResourceTest {
 
     var response = createSessionResource();
     assertThat(response.getEntity())
-        .isEqualTo(
-            "{\"sessions\": [{\"aborted\": 0, \"executions\": 0, \"failed\": 0, \"initialized\": "
-                + "\"null\", \"running\": 0, \"skipped\": 0, \"successful\": 0}]}");
+        .isEqualTo("{\"sessions\": [" + String.join(", ", SESSION, SESSION) + "]}");
     assertThat(response.getStatus()).isEqualTo(Status.OK.getStatusCode());
   }
 
