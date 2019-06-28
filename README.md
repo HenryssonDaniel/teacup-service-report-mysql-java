@@ -17,4 +17,6 @@ Follow the steps below:
 
 For developers: 
 1. Add plugin: id 'org.gretty' version 'x.x.x' 
+1. Add dependency compile 'org.jboss.resteasy:resteasy-jaxrs:x.x.x'
+1. Add dependency compile 'org.jboss.resteasy:resteasy-servlet-initializer:x.x.x'
 1. Run: gradle run
