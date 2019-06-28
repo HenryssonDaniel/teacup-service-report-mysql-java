@@ -13,4 +13,8 @@ The report back-end does and should not know anything about where the data comes
 from one database to another.
 ## How ##
 Follow the steps below:
-1. Start the service by running: gradle run
+1. Deploy the war file on your server  
+
+For developers: 
+1. Add plugin: id 'org.gretty' version '2.3.1' 
+1. Run: gradle run
