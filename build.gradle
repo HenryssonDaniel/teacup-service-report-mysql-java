@@ -35,7 +35,7 @@ task javadocJar(type: Jar) {
     archiveClassifier = 'javadoc'
 }
 
-task sourcesWar(type: War) {
+task sourcesJar(type: Jar) {
     from sourceSets.main.allJava
     archiveClassifier = 'sources'
 }
@@ -70,8 +70,8 @@ dependencies {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            from components.java
-            artifact sourcesWar
+            from components.web
+            artifact sourcesJar
             artifact javadocJar
 
             versionMapping {
