@@ -16,5 +16,5 @@ Follow the steps below:
 1. Deploy the war file on your server  
 
 For developers: 
-1. Add plugin: id 'org.gretty' version '2.3.1' 
+1. Add plugin: id 'org.gretty' version 'x.x.x' 
 1. Run: gradle run
