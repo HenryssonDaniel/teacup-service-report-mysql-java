@@ -86,7 +86,7 @@ publishing {
 
             pom {
                 name = project.group + ':' + project.name
-                description = 'MySQL report service'
+                description = 'Connect your Teacup visualization data to a MySQL database'
                 url = 'https://github.com/HenryssonDaniel/teacup-service-report-mysql-java'
 
                 licenses {
