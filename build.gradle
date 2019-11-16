@@ -43,6 +43,10 @@ task sourcesJar(type: Jar) {
 check.dependsOn integrationTest
 jacocoTestReport.dependsOn integrationTestReport
 
+tasks.withType(GenerateModuleMetadata) {
+    enabled = false
+}
+
 tasks.withType(Test) {
     useJUnitPlatform()
 
@@ -57,12 +61,12 @@ configurations {
 }
 
 dependencies {
-    compile 'javax.ws.rs:javax.ws.rs-api:2.1.1'
-    compile 'mysql:mysql-connector-java:8.0.18'
-    compile 'org.json:json:20190722'
     implementation 'io.github.henryssondaniel.teacup:core:1.1.5-SNAPSHOT'
-    testCompile 'org.glassfish.jersey.core:jersey-common:2.29.1'
+    implementation 'javax.ws.rs:javax.ws.rs-api:2.1.1'
+    implementation 'mysql:mysql-connector-java:8.0.18'
+    implementation 'org.json:json:20190722'
     testImplementation 'org.assertj:assertj-core:3.14.0'
+    testImplementation 'org.glassfish.jersey.core:jersey-common:2.29.1'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0-M1'
     testImplementation 'org.mockito:mockito-core:3.1.0'
 }
